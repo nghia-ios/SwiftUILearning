@@ -1,28 +1,70 @@
+
 import SwiftUI
 
 struct ContentView: View {
 
-    @State private var email = ""
-    @State private var password = ""
-
     var body: some View {
-        VStack(spacing: 20) {
+        NavigationStack {
+            VStack(spacing: 20) {
 
-            Text("Đăng nhập")
-                .font(.largeTitle)
-                .bold()
+                // Ảnh đại diện
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: 110, height: 110)
+                    .foregroundColor(.blue)
 
-            TextField("Nhập email", text: $email)
-                .textFieldStyle(.roundedBorder)
+                // Thông tin cá nhân
+                VStack(spacing: 8) {
+                    Text("Nguyễn Huy Nghĩa")
+                        .font(.title2)
+                        .fontWeight(.bold)
 
-            SecureField("Nhập mật khẩu", text: $password)
-                .textFieldStyle(.roundedBorder)
+                    Text("iOS Developer")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
 
-            Button("Đăng nhập") {
-                print("Login button clicked")
+                Divider()
+
+                // Email
+                HStack {
+                    Image(systemName: "envelope.fill")
+                        .foregroundColor(.blue)
+
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Email")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Text("nguyenhuynghia@gmail.com")
+                            .font(.body)
+                    }
+
+                    Spacer()
+                }
+
+                // Nút chỉnh sửa
+                Button {
+                    print("Chỉnh sửa hồ sơ")
+                } label: {
+                    Text("Chỉnh sửa hồ sơ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(12)
+                }
+
+                Spacer()
             }
-            .buttonStyle(.borderedProminent)
+            .padding()
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
     }
+}
+
+#Preview {
+    ContentView()
 }
