@@ -6,7 +6,7 @@ struct ContentView: View {
     @State private var todos = [
 
         TodoItem(
-            title: "Học Swift",
+            title: "Học Swift Ok",
             description: "Học biến, hằng và hàm trong Swift",
             isCompleted: false,
             priority: .high
